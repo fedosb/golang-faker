@@ -9,7 +9,7 @@ type FakerImpl[T any] struct {
 	createFuncMap map[reflect.Kind]func(reflect.Type) any
 }
 
-func NewFaker[T any]() *FakerImpl[T] {
+func NewFaker[T any]() Faker[T] {
 
 	createFuncMap := map[reflect.Kind]func(reflect.Type) any{
 		reflect.Bool:       createBool,

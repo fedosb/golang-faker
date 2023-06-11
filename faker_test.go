@@ -20,8 +20,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create bool value",
 			runFunc: func() {
-				var myFaker faker.Faker[bool]
-				myFaker = faker.NewFaker[bool]()
+
+				myFaker := faker.NewFaker[bool]()
 				res := myFaker.Create()
 				fmt.Printf("   | ---> Result is: %+v\n", *res)
 			},
@@ -29,8 +29,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create int value",
 			runFunc: func() {
-				var myFaker faker.Faker[int]
-				myFaker = faker.NewFaker[int]()
+
+				myFaker := faker.NewFaker[int]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The int result is: %+v\n", *res)
@@ -39,8 +39,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create int8 value",
 			runFunc: func() {
-				var myFaker faker.Faker[int8]
-				myFaker = faker.NewFaker[int8]()
+
+				myFaker := faker.NewFaker[int8]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The int8 result is: %+v\n", *res)
@@ -49,8 +49,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create int16 value",
 			runFunc: func() {
-				var myFaker faker.Faker[int16]
-				myFaker = faker.NewFaker[int16]()
+
+				myFaker := faker.NewFaker[int16]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The int16 result is: %+v\n", *res)
@@ -59,8 +59,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create int32 value",
 			runFunc: func() {
-				var myFaker faker.Faker[int32]
-				myFaker = faker.NewFaker[int32]()
+
+				myFaker := faker.NewFaker[int32]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The int32 result is: %+v\n", *res)
@@ -69,8 +69,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create int64 value",
 			runFunc: func() {
-				var myFaker faker.Faker[int64]
-				myFaker = faker.NewFaker[int64]()
+
+				myFaker := faker.NewFaker[int64]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The int64 result is: %+v\n", *res)
@@ -79,8 +79,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create uint value",
 			runFunc: func() {
-				var myFaker faker.Faker[uint]
-				myFaker = faker.NewFaker[uint]()
+
+				myFaker := faker.NewFaker[uint]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The uint result is: %+v\n", *res)
@@ -89,8 +89,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create uint8 value",
 			runFunc: func() {
-				var myFaker faker.Faker[uint8]
-				myFaker = faker.NewFaker[uint8]()
+
+				myFaker := faker.NewFaker[uint8]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The uint8 result is: %+v\n", *res)
@@ -99,8 +99,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create uint16 value",
 			runFunc: func() {
-				var myFaker faker.Faker[uint16]
-				myFaker = faker.NewFaker[uint16]()
+
+				myFaker := faker.NewFaker[uint16]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The uint16 result is: %+v\n", *res)
@@ -109,8 +109,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create uint32 value",
 			runFunc: func() {
-				var myFaker faker.Faker[uint32]
-				myFaker = faker.NewFaker[uint32]()
+
+				myFaker := faker.NewFaker[uint32]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The uint32 result is: %+v\n", *res)
@@ -119,8 +119,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create uint64 value",
 			runFunc: func() {
-				var myFaker faker.Faker[uint64]
-				myFaker = faker.NewFaker[uint64]()
+
+				myFaker := faker.NewFaker[uint64]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The uint64 result is: %+v\n", *res)
@@ -129,8 +129,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create float32 value",
 			runFunc: func() {
-				var myFaker faker.Faker[float32]
-				myFaker = faker.NewFaker[float32]()
+
+				myFaker := faker.NewFaker[float32]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The float32 result is: %+v\n", *res)
@@ -139,8 +139,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create float64 value",
 			runFunc: func() {
-				var myFaker faker.Faker[float64]
-				myFaker = faker.NewFaker[float64]()
+
+				myFaker := faker.NewFaker[float64]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The float64 result is: %+v\n", *res)
@@ -149,8 +149,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create complex64 value",
 			runFunc: func() {
-				var myFaker faker.Faker[complex64]
-				myFaker = faker.NewFaker[complex64]()
+
+				myFaker := faker.NewFaker[complex64]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The complex64 result is: %+v\n", *res)
@@ -159,8 +159,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create complex128 value",
 			runFunc: func() {
-				var myFaker faker.Faker[complex128]
-				myFaker = faker.NewFaker[complex128]()
+
+				myFaker := faker.NewFaker[complex128]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The complex128 result is: %+v\n", *res)
@@ -169,8 +169,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create string value",
 			runFunc: func() {
-				var myFaker faker.Faker[string]
-				myFaker = faker.NewFaker[string]()
+
+				myFaker := faker.NewFaker[string]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The string result is: %+v\n", *res)
@@ -179,8 +179,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create array value",
 			runFunc: func() {
-				var myFaker faker.Faker[[10]uint]
-				myFaker = faker.NewFaker[[10]uint]()
+
+				myFaker := faker.NewFaker[[10]uint]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The array result is: %+v\n", *res)
@@ -189,8 +189,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create slice value",
 			runFunc: func() {
-				var myFaker faker.Faker[[][10]uint]
-				myFaker = faker.NewFaker[[][10]uint]()
+
+				myFaker := faker.NewFaker[[][10]uint]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The slice result is: %+v\n", *res)
@@ -199,8 +199,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create map value",
 			runFunc: func() {
-				var myFaker faker.Faker[map[string]complex64]
-				myFaker = faker.NewFaker[map[string]complex64]()
+
+				myFaker := faker.NewFaker[map[string]complex64]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The map result is: %+v\n", *res)
@@ -209,8 +209,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create uintptr value",
 			runFunc: func() {
-				var myFaker faker.Faker[uintptr]
-				myFaker = faker.NewFaker[uintptr]()
+
+				myFaker := faker.NewFaker[uintptr]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The uintptr result is: %+v\n", *res)
@@ -219,8 +219,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create pointer value",
 			runFunc: func() {
-				var myFaker faker.Faker[*uint8]
-				myFaker = faker.NewFaker[*uint8]()
+
+				myFaker := faker.NewFaker[*uint8]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The pointer result is: %+v\n", *res)
@@ -229,8 +229,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create func value",
 			runFunc: func() {
-				var myFaker faker.Faker[func(foo int, bar uint)]
-				myFaker = faker.NewFaker[func(foo int, bar uint)]()
+
+				myFaker := faker.NewFaker[func(foo int, bar uint)]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The func result is: %+v\n", res)
@@ -239,8 +239,8 @@ func (suite *FakerSampleSuite) Test_Faker() {
 		{
 			name: "Sample Create chan value",
 			runFunc: func() {
-				var myFaker faker.Faker[chan complex128]
-				myFaker = faker.NewFaker[chan complex128]()
+
+				myFaker := faker.NewFaker[chan complex128]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The chan result is: %+v\n", *res)
@@ -268,8 +268,7 @@ func (suite *FakerSampleSuite) Test_Faker() {
 					}
 				}
 
-				var myFaker faker.Faker[List[Bar]]
-				myFaker = faker.NewFaker[List[Bar]]()
+				myFaker := faker.NewFaker[List[Bar]]()
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The struct result is: %+v\n", *res)
