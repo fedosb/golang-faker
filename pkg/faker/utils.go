@@ -64,3 +64,12 @@ func createComplex64(_ reflect.Type) any {
 func createComplex128(_ reflect.Type) any {
 	return complex(rand.Float64(), rand.Float64())
 }
+
+func createString(_ reflect.Type) any {
+	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	b := make([]byte, rand.Int()%len(charset))
+	for i := range b {
+		b[i] = charset[rand.Intn(len(charset))]
+	}
+	return string(b)
+}

@@ -27,7 +27,7 @@ func NewFaker[T any]() *FakerImpl[T] {
 			reflect.Float64:    createFloat64,
 			reflect.Complex64:  createComplex64,
 			reflect.Complex128: createComplex128,
-			// TODO: create strings
+			reflect.String:     createString,
 			// TODO: create structs
 			// TODO: create pointers
 			// TODO: create arrays

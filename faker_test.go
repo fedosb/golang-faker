@@ -119,6 +119,13 @@ func (suite *FakerSampleSuite) Test_Faker() {
 			res := myFaker.Create()
 			fmt.Printf("   | ---> The complex128 result is: %+v\n", *res)
 		},
+		"Sample Create string value": func() {
+			var myFaker faker.Faker[string]
+			myFaker = faker.NewFaker[string]()
+
+			res := myFaker.Create()
+			fmt.Printf("   | ---> The complex128 result is: %+v\n", *res)
+		},
 	}
 
 	for name, cs := range cases {
