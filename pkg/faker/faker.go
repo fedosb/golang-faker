@@ -10,32 +10,36 @@ type FakerImpl[T any] struct {
 }
 
 func NewFaker[T any]() *FakerImpl[T] {
+
+	createFuncMap := map[reflect.Kind]func(reflect.Type) any{
+		reflect.Bool:       createBool,
+		reflect.Int:        createInt,
+		reflect.Int8:       createInt8,
+		reflect.Int16:      createInt16,
+		reflect.Int32:      createInt32,
+		reflect.Int64:      createInt64,
+		reflect.Uint:       createUint,
+		reflect.Uint8:      createUint8,
+		reflect.Uint16:     createUint16,
+		reflect.Uint32:     createUint32,
+		reflect.Uint64:     createUint64,
+		reflect.Float32:    createFloat32,
+		reflect.Float64:    createFloat64,
+		reflect.Complex64:  createComplex64,
+		reflect.Complex128: createComplex128,
+		reflect.String:     createString,
+		// TODO: create structs
+		// TODO: create pointers
+		// TODO: create chans
+		// TODO: create funcs
+	}
+
+	createFuncMap[reflect.Array] = func(t reflect.Type) any { return createArray(t, createFuncMap) }
+	createFuncMap[reflect.Slice] = func(t reflect.Type) any { return createSlice(t, createFuncMap) }
+	createFuncMap[reflect.Map] = func(t reflect.Type) any { return createMap(t, createFuncMap) }
+
 	return &FakerImpl[T]{
-		createFuncMap: map[reflect.Kind]func(reflect.Type) any{
-			reflect.Bool:       createBool,
-			reflect.Int:        createInt,
-			reflect.Int8:       createInt8,
-			reflect.Int16:      createInt16,
-			reflect.Int32:      createInt32,
-			reflect.Int64:      createInt64,
-			reflect.Uint:       createUint,
-			reflect.Uint8:      createUint8,
-			reflect.Uint16:     createUint16,
-			reflect.Uint32:     createUint32,
-			reflect.Uint64:     createUint64,
-			reflect.Float32:    createFloat32,
-			reflect.Float64:    createFloat64,
-			reflect.Complex64:  createComplex64,
-			reflect.Complex128: createComplex128,
-			reflect.String:     createString,
-			// TODO: create structs
-			// TODO: create pointers
-			// TODO: create arrays
-			// TODO: create slices
-			// TODO: create maps
-			// TODO: create chans
-			// TODO: create funcs
-		},
+		createFuncMap: createFuncMap,
 	}
 }
 

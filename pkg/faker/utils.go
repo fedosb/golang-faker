@@ -73,3 +73,34 @@ func createString(_ reflect.Type) any {
 	}
 	return string(b)
 }
+
+func createArray(t reflect.Type, m map[reflect.Kind]func(reflect.Type) any) any {
+	arrayLen := t.Len()
+	array := reflect.New(t).Elem()
+	for i := 0; i < arrayLen; i++ {
+		array.Index(i).Set(reflect.ValueOf(createValue(t.Elem(), m)))
+	}
+	return array.Interface()
+}
+
+func createSlice(t reflect.Type, m map[reflect.Kind]func(reflect.Type) any) any {
+	sliceType := t.Elem()
+	sliceLen := rand.Intn(10) + 1
+	slice := reflect.MakeSlice(t, sliceLen, sliceLen)
+	for i := 0; i < sliceLen; i++ {
+		slice.Index(i).Set(reflect.ValueOf(createValue(sliceType, m)))
+	}
+	return slice.Interface()
+}
+
+func createMap(t reflect.Type, m map[reflect.Kind]func(reflect.Type) any) any {
+	mapType := t.Elem()
+	mapLen := rand.Intn(10) + 1
+	newMap := reflect.MakeMapWithSize(t, mapLen)
+	for i := 0; i < mapLen; i++ {
+		key := reflect.ValueOf(createValue(t.Key(), m))
+		value := reflect.ValueOf(createValue(mapType, m))
+		newMap.SetMapIndex(key, value)
+	}
+	return newMap.Interface()
+}

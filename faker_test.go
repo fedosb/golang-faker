@@ -176,6 +176,36 @@ func (suite *FakerSampleSuite) Test_Faker() {
 				fmt.Printf("   | ---> The string result is: %+v\n", *res)
 			},
 		},
+		{
+			name: "Sample Create array value",
+			runFunc: func() {
+				var myFaker faker.Faker[[10]uint]
+				myFaker = faker.NewFaker[[10]uint]()
+
+				res := myFaker.Create()
+				fmt.Printf("   | ---> The array result is: %+v\n", *res)
+			},
+		},
+		{
+			name: "Sample Create slice value",
+			runFunc: func() {
+				var myFaker faker.Faker[[][10]uint]
+				myFaker = faker.NewFaker[[][10]uint]()
+
+				res := myFaker.Create()
+				fmt.Printf("   | ---> The slice result is: %+v\n", *res)
+			},
+		},
+		{
+			name: "Sample Create map value",
+			runFunc: func() {
+				var myFaker faker.Faker[map[string]complex64]
+				myFaker = faker.NewFaker[map[string]complex64]()
+
+				res := myFaker.Create()
+				fmt.Printf("   | ---> The map result is: %+v\n", *res)
+			},
+		},
 	}
 
 	for _, cs := range cases {
