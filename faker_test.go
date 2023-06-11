@@ -246,6 +246,35 @@ func (suite *FakerSampleSuite) Test_Faker() {
 				fmt.Printf("   | ---> The chan result is: %+v\n", *res)
 			},
 		},
+		{
+			name: "Sample Create struct value",
+			runFunc: func() {
+
+				type Foo struct {
+					FooField []struct {
+						FooStructInnerField complex128
+					}
+				}
+
+				type Bar struct {
+					Foo
+					BarField map[[20]byte][]*uint8
+				}
+
+				type List[T any] struct {
+					Data []T
+					Meta []struct {
+						MetaField string
+					}
+				}
+
+				var myFaker faker.Faker[List[Bar]]
+				myFaker = faker.NewFaker[List[Bar]]()
+
+				res := myFaker.Create()
+				fmt.Printf("   | ---> The struct result is: %+v\n", *res)
+			},
+		},
 	}
 
 	for _, cs := range cases {

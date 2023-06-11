@@ -123,3 +123,15 @@ func createFunc(t reflect.Type) any {
 func createChan(t reflect.Type) any {
 	return reflect.MakeChan(t, 0).Interface()
 }
+
+func createStruct(t reflect.Type, m map[reflect.Kind]func(reflect.Type) any) any {
+	value := reflect.New(t)
+	elem := value.Elem()
+	for i := 0; i < elem.NumField(); i++ {
+		field := elem.Field(i)
+		if field.CanSet() {
+			field.Set(reflect.ValueOf(createValue(field.Type(), m)))
+		}
+	}
+	return elem.Interface()
+}

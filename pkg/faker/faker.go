@@ -31,13 +31,13 @@ func NewFaker[T any]() *FakerImpl[T] {
 		reflect.Uintptr:    createUintptr,
 		reflect.Func:       createFunc,
 		reflect.Chan:       createChan,
-		// TODO: create structs
 	}
 
 	createFuncMap[reflect.Array] = func(t reflect.Type) any { return createArray(t, createFuncMap) }
 	createFuncMap[reflect.Slice] = func(t reflect.Type) any { return createSlice(t, createFuncMap) }
 	createFuncMap[reflect.Map] = func(t reflect.Type) any { return createMap(t, createFuncMap) }
 	createFuncMap[reflect.Pointer] = func(t reflect.Type) any { return createPointer(t, createFuncMap) }
+	createFuncMap[reflect.Struct] = func(t reflect.Type) any { return createStruct(t, createFuncMap) }
 
 	return &FakerImpl[T]{
 		createFuncMap: createFuncMap,
