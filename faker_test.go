@@ -226,6 +226,16 @@ func (suite *FakerSampleSuite) Test_Faker() {
 				fmt.Printf("   | ---> The pointer result is: %+v\n", *res)
 			},
 		},
+		{
+			name: "Sample Create func value",
+			runFunc: func() {
+				var myFaker faker.Faker[func(foo int, bar uint)]
+				myFaker = faker.NewFaker[func(foo int, bar uint)]()
+
+				res := myFaker.Create()
+				fmt.Printf("   | ---> The func result is: %+v\n", res)
+			},
+		},
 	}
 
 	for _, cs := range cases {

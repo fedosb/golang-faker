@@ -29,9 +29,9 @@ func NewFaker[T any]() *FakerImpl[T] {
 		reflect.Complex128: createComplex128,
 		reflect.String:     createString,
 		reflect.Uintptr:    createUintptr,
+		reflect.Func:       createFunc,
 		// TODO: create structs
 		// TODO: create chans
-		// TODO: create funcs
 	}
 
 	createFuncMap[reflect.Array] = func(t reflect.Type) any { return createArray(t, createFuncMap) }

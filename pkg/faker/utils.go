@@ -115,3 +115,7 @@ func createPointer(t reflect.Type, m map[reflect.Kind]func(reflect.Type) any) an
 func createUintptr(_ reflect.Type) any {
 	return reflect.ValueOf(uintptr(0)).Interface()
 }
+
+func createFunc(t reflect.Type) any {
+	return reflect.Zero(t).Interface()
+}
