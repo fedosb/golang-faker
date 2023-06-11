@@ -104,3 +104,14 @@ func createMap(t reflect.Type, m map[reflect.Kind]func(reflect.Type) any) any {
 	}
 	return newMap.Interface()
 }
+
+func createPointer(t reflect.Type, m map[reflect.Kind]func(reflect.Type) any) any {
+	ptrType := t.Elem()
+	ptrValue := reflect.New(ptrType)
+	ptrValue.Elem().Set(reflect.ValueOf(createValue(ptrType, m)))
+	return ptrValue.Interface()
+}
+
+func createUintptr(_ reflect.Type) any {
+	return reflect.ValueOf(uintptr(0)).Interface()
+}

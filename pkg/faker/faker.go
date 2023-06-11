@@ -28,8 +28,8 @@ func NewFaker[T any]() *FakerImpl[T] {
 		reflect.Complex64:  createComplex64,
 		reflect.Complex128: createComplex128,
 		reflect.String:     createString,
+		reflect.Uintptr:    createUintptr,
 		// TODO: create structs
-		// TODO: create pointers
 		// TODO: create chans
 		// TODO: create funcs
 	}
@@ -37,6 +37,7 @@ func NewFaker[T any]() *FakerImpl[T] {
 	createFuncMap[reflect.Array] = func(t reflect.Type) any { return createArray(t, createFuncMap) }
 	createFuncMap[reflect.Slice] = func(t reflect.Type) any { return createSlice(t, createFuncMap) }
 	createFuncMap[reflect.Map] = func(t reflect.Type) any { return createMap(t, createFuncMap) }
+	createFuncMap[reflect.Pointer] = func(t reflect.Type) any { return createPointer(t, createFuncMap) }
 
 	return &FakerImpl[T]{
 		createFuncMap: createFuncMap,

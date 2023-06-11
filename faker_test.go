@@ -206,6 +206,26 @@ func (suite *FakerSampleSuite) Test_Faker() {
 				fmt.Printf("   | ---> The map result is: %+v\n", *res)
 			},
 		},
+		{
+			name: "Sample Create uintptr value",
+			runFunc: func() {
+				var myFaker faker.Faker[uintptr]
+				myFaker = faker.NewFaker[uintptr]()
+
+				res := myFaker.Create()
+				fmt.Printf("   | ---> The uintptr result is: %+v\n", *res)
+			},
+		},
+		{
+			name: "Sample Create pointer value",
+			runFunc: func() {
+				var myFaker faker.Faker[*uint8]
+				myFaker = faker.NewFaker[*uint8]()
+
+				res := myFaker.Create()
+				fmt.Printf("   | ---> The pointer result is: %+v\n", *res)
+			},
+		},
 	}
 
 	for _, cs := range cases {
