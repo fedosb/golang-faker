@@ -5,6 +5,7 @@ import (
 	"github.com/stretchr/testify/suite"
 	"golang-faker/pkg/faker"
 	"testing"
+	"unsafe"
 )
 
 type FakerSampleSuite struct {
@@ -272,6 +273,20 @@ func (suite *FakerSampleSuite) Test_Faker() {
 
 				res := myFaker.Create()
 				fmt.Printf("   | ---> The struct result is: %+v\n", *res)
+			},
+		},
+		{
+			name: "Test Invalid chan value",
+			runFunc: func() {
+
+				defer func() {
+					r := recover()
+					suite.NotEqual(nil, r)
+				}()
+
+				myFaker := faker.NewFaker[unsafe.Pointer]()
+
+				_ = myFaker.Create()
 			},
 		},
 	}
