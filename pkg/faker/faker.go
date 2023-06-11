@@ -30,8 +30,8 @@ func NewFaker[T any]() *FakerImpl[T] {
 		reflect.String:     createString,
 		reflect.Uintptr:    createUintptr,
 		reflect.Func:       createFunc,
+		reflect.Chan:       createChan,
 		// TODO: create structs
-		// TODO: create chans
 	}
 
 	createFuncMap[reflect.Array] = func(t reflect.Type) any { return createArray(t, createFuncMap) }

@@ -236,6 +236,16 @@ func (suite *FakerSampleSuite) Test_Faker() {
 				fmt.Printf("   | ---> The func result is: %+v\n", res)
 			},
 		},
+		{
+			name: "Sample Create chan value",
+			runFunc: func() {
+				var myFaker faker.Faker[chan complex128]
+				myFaker = faker.NewFaker[chan complex128]()
+
+				res := myFaker.Create()
+				fmt.Printf("   | ---> The chan result is: %+v\n", *res)
+			},
+		},
 	}
 
 	for _, cs := range cases {

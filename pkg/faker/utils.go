@@ -119,3 +119,7 @@ func createUintptr(_ reflect.Type) any {
 func createFunc(t reflect.Type) any {
 	return reflect.Zero(t).Interface()
 }
+
+func createChan(t reflect.Type) any {
+	return reflect.MakeChan(t, 0).Interface()
+}
